@@ -1,4 +1,4 @@
-# FECNet
+# FOFC
 
 <img src="figures/1.png" />
 
