@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     parser = ArgumentParser()
 
-    parser.add_argument("-vp", dest="vid_path", help="Path to the video file", default='./videos/3.mp4',
+    parser.add_argument("-vp", dest="vid_path", help="Path to the video file", default='./videos/1.mp4',
                         type=str)
     parser.add_argument("-sd", dest="save_dir", help="Directory path for saving the output",
                         default="./Clusters", type=str)
