@@ -56,11 +56,12 @@ Hence, you can run the algorithm on a video file. The output directory will cont
 If you found this repo useful give me a star!
 
 ```
-@inproceedings{vemulapalli2019compact,
-  title={A Compact Embedding for Facial Expression Similarity},
-  author={Vemulapalli, Raviteja and Agarwala, Aseem},
-  booktitle={Conference on Computer Vision and Pattern Recognition (CVPR)},
-  pages={5683--5692},
-  year={2019}
+@inproceedings{kulshreshtha2018online,
+  title={An Online Algorithm for Constrained Face Clustering in Videos},
+  author={Kulshreshtha, Prakhar and Guha, Tanaya},
+  booktitle={2018 25th IEEE International Conference on Image Processing (ICIP)},
+  pages={2670--2674},
+  year={2018},
+  organization={IEEE}
 }
 ```
