@@ -1,6 +1,8 @@
 # FOFC
 
+<p align="center">
 <img src="figures/1.png" />
+</p>
 
 This module contains code in support of the paper [An online algorithm for constrained face clustering in videos](https://tanayag.com/Pub_files/Kulshreshtha_Online_face.pdf). The experiment is implemented using the MXNet framework.
 
