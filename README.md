@@ -10,33 +10,48 @@ In this repository, I used the original implementation of this paper from [here]
 The code was successfully built and run with these versions:
 
 ```
-pytorch-gpu 1.2.0
-cudnn 7.6.4
+mxnet-cu100
+cudnn 7.6.5
 cudatoolkit 10.0.130
 opencv 3.4.2
+scikit-learn 0.20.3
 
 ```
+Note: You can also create the environment I've tested with by importing _environment.yml_ in conda.
 
-### Training
+### Testing
+In this repo, I used the 512-D embedding feature from MobileFaceNe.
 
-For training, you should download the [Google facial expression comparison dataset](https://ai.google/tools/datasets/google-facial-expression/) and extract in 'data' folder.
+```
+usage: run_COFC_on_video.py [-h] [-vp VID_PATH] [-sd SAVE_DIR]
+                            [-ft FEAT_THRESH] [-ot OVERLAP_THRESH]
+                            [-st SIM_THRESH] [--model MODEL_DIR]
+                            [--gpu GPU_ID] 
 
-I followed the procedure in the main paper to train their network. In this work, their goal is to describe facial expression in a continuous compact embedding space. The network has a backbone of [inception network](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Schroff_FaceNet_A_Unified_2015_CVPR_paper.pdf) (which was trained to cluster faces) up to inception (4) block. The inception network was trained on [VGGFace2](https://arxiv.org/abs/1710.08092). The weights of inception network is fixed and the output feature maps feed to a [DenseNet](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf) consists of a regular convolution layer with 512 filters and 1\*1 kernel size. It also has a Dense block with 5 layers and growth rate of 64 (the whole parameters are based on the main paper). It follows by two fully connected layers with 512 and 16 embedding size.
+optional arguments:
+  -h, --help          show this help message and exit
+  -vp VID_PATH        Path to the video file
+  -sd SAVE_DIR        Directory path for saving the output
+  -ft FEAT_THRESH     Threshold of distance bw features to belong to different
+                      persons
+  -ot OVERLAP_THRESH  Threshold of overlap above which two faces in
+                      consecutive frames will belong to same track
+  -st SIM_THRESH      Threshold of Similarity for facetracks to belong to a
+                      cluster
+  --model             Path to load model
+  --gpu               The gpu id which you want to use
+```
 
-The following pretrained FECNet is available:
 
 
-| model | pretraining | training | Traing acc | Test acc |
-|-------|-------------|----------|--------------|---------------|
-| inception_resnet_v1 | [VGGFace2](https://arxiv.org/abs/1710.08092) | Google facial expression comparison dataset | 75.0 | 64.3 |
+You can download the pretrained model [here](https://drive.google.com/drive/folders/10P9kIRYKodIGs7Vgv64aQYu9G1A3ofpC?usp=sharing). There are more pretrained model in [here](https://github.com/deepinsight/insightface/wiki/Model-Zoo)
 
-<img src="figures/1.png" />
+Hence, you can run the algorithm on a video file. The output directory will contain one folder corresponding to each cluster, and then in each folder it will have all the faces belonging to that cluster. The algorithm is highly sensitive to SIM_THRESH. Its value ranges between (0.0, 4.0). Increasing beyond 3.2 will create a lot of clusters, each person will be split into multiple clusters. On the other hand, keeping it below say 2.8 will create less clusters but each cluster will have faces of multiple characters.
 
-You can download the pretrained model [here](https://drive.google.com/file/d/1iTG-aqh88HBWTWRNN_IAHEoS8J-ns0jx/view?usp=sharing)
 
 ### References
 
-If you found this repo usefull give me a star!
+If you found this repo useful give me a star!
 
 ```
 @inproceedings{vemulapalli2019compact,

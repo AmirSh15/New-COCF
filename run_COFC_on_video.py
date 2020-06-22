@@ -84,7 +84,7 @@ if __name__ == "__main__":
                                                        "to belong to a cluster",
                         default="2.8", type=float)
     parser.add_argument('--image-size', default='112,112', help='')
-    parser.add_argument('--model', default='./pretrained_models/model-r34-amf,0',
+    parser.add_argument('--model', default='./pretrained_models/model-r34-amf/model-r34-amf,0',
                         help='path to load model.')
     parser.add_argument('--gpu', default=0, type=int, help='gpu id')
     parser.add_argument('--det', default=0, type=int,
