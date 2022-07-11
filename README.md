@@ -4,7 +4,7 @@
 <img src="figures/1.png" />
 </p>
 
-This module contains code in support of the paper [An online algorithm for constrained face clustering in videos](https://tanayag.com/Pub_files/Kulshreshtha_Online_face.pdf). The experiment is implemented using the MXNet framework.
+This module contains code in support of the paper [An online algorithm for constrained face clustering in videos](https://link.springer.com/article/10.1007/s11042-020-09449-6). The experiment is implemented using the MXNet framework.
 
 In this repository, I used the original implementation of this paper from [here](https://github.com/ankuPRK/COFC) and face recognition from [insightface](https://github.com/deepinsight/insightface)
 ### Dependencies
